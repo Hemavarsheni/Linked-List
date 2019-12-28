@@ -4,15 +4,14 @@ class Node:
         self.next=None 
         
     def reversing(self):
-        t=self 
-        node=self.next 
-        t.next=None 
-        while(node!=None):
-            temp=node.next 
-            node.next=t
-            t=node 
-            node=temp 
-        return t 
+        prev=None 
+        current=self
+        while(current!=None):
+            next=current.next
+            current.next=prev
+            prev=current 
+            current=next  
+        return prev 
     def Print(self):
         node=self
         while(node!=None):
@@ -24,4 +23,4 @@ root.next.next=Node(3)
 root.next.next.next=Node(4) 
 root.next.next.next.next=Node(5)
 root=root.reversing()
-root.Print() 
+root.Print()
