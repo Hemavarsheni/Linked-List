@@ -1,0 +1,27 @@
+class Node:
+    def __init__(self,key):
+        self.data=key
+        self.next=None 
+        
+    def reversing(self):
+        t=self 
+        node=self.next 
+        t.next=None 
+        while(node!=None):
+            temp=node.next 
+            node.next=t
+            t=node 
+            node=temp 
+        return t 
+    def Print(self):
+        node=self
+        while(node!=None):
+            print(node.data,end="->")
+            node=node.next
+root=Node(1)
+root.next=Node(2)
+root.next.next=Node(3)
+root.next.next.next=Node(4) 
+root.next.next.next.next=Node(5)
+root=root.reversing()
+root.Print() 
